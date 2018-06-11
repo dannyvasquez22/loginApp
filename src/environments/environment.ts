@@ -10,7 +10,7 @@ export const environment = {
     authDomain: "loginapp-e3a13.firebaseapp.com",
     databaseURL: "https://loginapp-e3a13.firebaseio.com",
     projectId: "loginapp-e3a13",
-    storageBucket: "",
+    storageBucket: "loginapp-e3a13.appspot.com", // para uso de firestore
     messagingSenderId: "349679518548"
   }
 };

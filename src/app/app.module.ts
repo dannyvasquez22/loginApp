@@ -13,14 +13,22 @@ import { NotFoundPageComponent } from './componentes/not-found-page/not-found-pa
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService } from 'angular2-flash-messages';
-
+// imports de angular y firebase-firestore
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+//credenciales de firebase-firestore
 import { environment } from '../environments/environment';
-
+//importa servicios, funciones login firebase-firestore
 import { AuthService } from './servicios/auth.service';
+import { RecetaService } from './servicios/receta.service';
+//importa guard, para permitir o no accesos a diferentes rutas
 import { AuthGuard } from './guards/auth.guard';
+import { NuevaRecetaComponent } from './componentes/nueva-receta/nueva-receta.component';
+import { AdminComponent } from './componentes/admin/admin.component';
+import { AboutComponent } from './componentes/about/about.component';
+import { DetailsComponent } from './componentes/details/details.component';
+import { EditComponent } from './componentes/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -30,17 +38,23 @@ import { AuthGuard } from './guards/auth.guard';
     RegisterPageComponent,
     LoginPageComponent,
     PrivadoPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    NuevaRecetaComponent,
+    AdminComponent,
+    AboutComponent,
+    DetailsComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     FlashMessagesModule
   ],
-  providers: [AuthService, AuthGuard, FlashMessagesService],
+  providers: [AuthService, AuthGuard, FlashMessagesService, RecetaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
